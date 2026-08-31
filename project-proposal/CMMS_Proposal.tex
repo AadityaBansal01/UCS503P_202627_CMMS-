@@ -1,58 +1,55 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{geometry}
-\geometry{a4paper, margin=1in}
-\usepackage{hyperref}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{titlesec}
-\usepackage{setspace}
+\documentclass[11pt]{article}
 
-\title{
-    \vspace{-2cm}
-    \textbf{College Mentorship Management System (CMMS)}\\
-    \large A Digital Platform for Faculty--Student Mentorship
-}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{times}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+
+\titleformat{\section}{\large\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.3em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1em}{0.4em}
+
+\title{\Large\textbf{College Mentorship Management System (CMMS):}\\[0.2em]
+\Large\textbf{A Digital Platform for Faculty--Student Mentorship}}
 \author{
-    \textbf{Aaditya Bansal} (1024030768) \\
-    \textbf{Jessica} (1024030761) \\
-    \textbf{Harshveer Singh} (1024030776) \\\\
-    Department of Computer Science and Engineering \\
-    Thapar Institute of Engineering and Technology
+  \relax Aaditya Bansal \\ \small 1024030768 \\[0.3em]
+  \relax Jessica \\ \small 1024030761 \\[0.3em]
+  \relax Harshveer Singh \\ \small 1024030776 \\[0.3em]
+  \small Department of Computer Science and Engineering \\
+  \small Thapar Institute of Engineering and Technology
 }
-\date{
-    \vfill
-    Submitted to: Jeelani Asif \\
-    Course: UCS503P \\
-    August 18, 2026
-}
+\date{Submitted to: Jeelani Asif \\ Course: UCS503P \\ August 18, 2026}
 
 \begin{document}
 
 \maketitle
 \thispagestyle{empty}
-\newpage
-
-\setcounter{page}{1}
-\onehalfspacing
+\vspace{0.5em}
 
 \section{Introduction and Problem Statement}
 Faculty mentorship is one of the biggest factors in whether a student does well in college. A good mentor helps a student pick the right courses, points them toward research or projects that match their interests, and notices early if something is going wrong. Studies on student retention consistently show that students who meet regularly with a faculty mentor are more likely to stay on track and finish strong. Departments also rely on mentorship to identify students who need extra support before small problems turn into failed semesters.
 
-Despite how important this is, most universities still run mentorship in a completely informal way. There is no dedicated system for it --- students email professors to ask for a meeting, office hours are unscheduled and often missed, and nothing about the conversation gets recorded anywhere. This causes three specific problems. First, coordination is manual: meetings get missed or forgotten because everything runs through ad hoc emails instead of a shared calendar. Second, there is no tracking: department heads have no way to see how often mentors and students are actually meeting, or whether a student's progress is improving. Third, faculty workload can end up unbalanced, since there is no shared system to see how many students each mentor is already handling across a department with hundreds of students.
+Despite how important this is, most universities still run mentorship in a completely informal way. There is no dedicated system for it: students email professors to ask for a meeting, office hours are unscheduled and often missed, and nothing about the conversation gets recorded anywhere. This causes three specific problems. First, coordination is manual: meetings get missed or forgotten because everything runs through ad hoc emails instead of a shared calendar. Second, there is no tracking: department heads have no way to see how often mentors and students are actually meeting, or whether a student's progress is improving. Third, faculty workload can end up unbalanced, since there is no shared system to see how many students each mentor is already handling across a department with hundreds of students.
 
-CMMS is proposed to close this gap. It is a web-based platform that digitizes the core mentorship process --- matching students to mentors, scheduling meetings, logging what happened, and giving department admins visibility into activity --- so that mentorship stops depending on informal effort and starts running on a shared, visible system.
+CMMS is proposed to close this gap. It is a web-based platform that digitizes the core mentorship process: matching students to mentors, scheduling meetings, logging what happened, and giving department admins visibility into activity. This way, mentorship stops depending on informal effort and starts running on a shared, visible system.
 
 \section{Objectives}
 The primary goal of this project is to build a web platform that digitizes, schedules, and tracks faculty--student mentorship across university departments, replacing today's informal, email-based coordination with one structured and visible system.
 
 Specific objectives:
-\begin{itemize}
-    \item Automatically match students to faculty mentors based on department and stated academic focus area.
-    \item Provide a built-in scheduling system for office hours, with conflict-free booking and every meeting automatically logged.
-    \item Give students, faculty, and department admins separate dashboards, each showing only what that role actually needs to see.
-    \item Let faculty record a short note after each meeting, building a visible history of contact per student over the semester.
-    \item Give department admins a summary view of mentorship activity, so workload and engagement are visible without asking faculty manually.
+\begin{itemize}[leftmargin=1.4em, itemsep=0.2em]
+  \item Automatically match students to faculty mentors based on department and stated academic focus area.
+  \item Provide a built-in scheduling system for office hours, with conflict-free booking and every meeting automatically logged.
+  \item Give students, faculty, and department admins separate dashboards, each showing only what that role actually needs to see.
+  \item Let faculty record a short note after each meeting, building a visible history of contact per student over the semester.
+  \item Give department admins a summary view of mentorship activity, so workload and engagement are visible without asking faculty manually.
 \end{itemize}
 
 \section{Methodology}
@@ -60,65 +57,61 @@ CMMS is a software engineering project, so the methodology here is the system de
 
 \subsection{System Architecture and Tech Stack}
 The system is built on the MERN stack, in a standard three-tier structure:
-\begin{itemize}
-    \item \textbf{Frontend (React):} A responsive web interface with three separate views --- one each for students, faculty, and department admins.
-    \item \textbf{Backend (Node.js / Express):} REST APIs that handle authentication, matching, scheduling, and meeting records.
-    \item \textbf{Database (MongoDB):} Stores user profiles, mentor--student assignments, scheduled meetings, and meeting notes.
+\begin{itemize}[leftmargin=1.4em, itemsep=0.2em]
+  \item \textbf{Frontend (React):} A responsive web interface with three separate views, one each for students, faculty, and department admins.
+  \item \textbf{Backend (Node.js / Express):} REST APIs that handle authentication, matching, scheduling, and meeting records.
+  \item \textbf{Database (MongoDB):} Stores user profiles, mentor--student assignments, scheduled meetings, and meeting notes.
 \end{itemize}
-Since this is a web application, there are no special hardware requirements --- it needs to run in a standard browser on both desktop and mobile, which keeps it accessible to students and faculty without asking them to install anything extra.
+Since this is a web application, there are no special hardware requirements. It needs to run in a standard browser on both desktop and mobile, which keeps it accessible to students and faculty without asking them to install anything extra.
 
 \subsection{Module Development}
 The application is broken into four core modules:
-\begin{enumerate}
-    \item \textbf{Allocation:} Students are matched to a mentor in their department with a matching academic focus area, assigned on a first-available basis. Admins can see mentee counts per faculty member on their dashboard and manually reassign a student if the load looks uneven --- this keeps the matching logic simple and easy to reason about, rather than an automated balancing algorithm.
-    \item \textbf{Scheduling:} Faculty publish their office-hour availability, and students book a slot directly. The server checks for conflicts before confirming any booking, and every booked meeting automatically creates a log entry.
-    \item \textbf{Meeting Notes:} After each meeting, faculty add a short free-text note, building a visible, timestamped history of contact for that student.
-    \item \textbf{Dashboards:} Students see their mentor, meeting history, and notes; faculty see their mentee list and upcoming meetings; admins see a read-only summary of mentorship activity per department --- mentee counts, meeting counts, and completion rate.
+\begin{enumerate}[leftmargin=1.4em, itemsep=0.2em]
+  \item \textbf{Allocation:} Students are matched to a mentor in their department with a matching academic focus area, assigned on a first-available basis. Admins can see mentee counts per faculty member on their dashboard and manually reassign a student if the load looks uneven. This keeps the matching logic simple and easy to reason about, rather than an automated balancing algorithm.
+  \item \textbf{Scheduling:} Faculty publish their office-hour availability, and students book a slot directly. The server checks for conflicts before confirming any booking, and every booked meeting automatically creates a log entry.
+  \item \textbf{Meeting Notes:} After each meeting, faculty add a short free-text note, building a visible, timestamped history of contact for that student.
+  \item \textbf{Dashboards:} Students see their mentor, meeting history, and notes; faculty see their mentee list and upcoming meetings; admins see a read-only summary of mentorship activity per department: mentee counts, meeting counts, and completion rate.
 \end{enumerate}
 
 \subsection{Execution and Integration}
-Development happens in short, weekly iterations, with each module --- allocation, scheduling, and dashboards --- built and demoed on its own before being integrated with the others, so problems surface early instead of at the end. Given the limited timeline, the team is deploying manually to a hosting platform once a module is stable, rather than setting up an automated build/deploy pipeline; this keeps the team's time focused on features that are actually visible in a demo.
+Development happens in short, weekly iterations, with each module (allocation, scheduling, and dashboards) built and demoed on its own before being integrated with the others, so problems surface early instead of at the end. Given the limited timeline, the team is deploying manually to a hosting platform once a module is stable, rather than setting up an automated build/deploy pipeline; this keeps the team's time focused on features that are actually visible in a demo.
 
 \subsection{Testing and Validation}
-Once modules are integrated, the system is checked against specific, observable criteria rather than just "does it run":
-\begin{itemize}
-    \item \textbf{Assignment correctness:} every student is matched only to a mentor within their own department and stated focus area.
-    \item \textbf{Meeting completion rate:} the percentage of scheduled meetings that actually get logged as held, versus missed or no-show.
-    \item \textbf{Admin visibility:} whether a department admin can answer "how is mentorship going in my department right now" directly from the dashboard, without having to ask faculty manually.
-    \item \textbf{User satisfaction:} a short post-pilot survey (1--5 rating) asking students and faculty whether the system made mentorship easier to manage.
+Once modules are integrated, the system is checked against specific, observable criteria rather than just ``does it run'':
+\begin{itemize}[leftmargin=1.4em, itemsep=0.2em]
+  \item \textbf{Assignment correctness:} every student is matched only to a mentor within their own department and stated focus area.
+  \item \textbf{Meeting completion rate:} the percentage of scheduled meetings that actually get logged as held, versus missed or no-show.
+  \item \textbf{Admin visibility:} whether a department admin can answer ``how is mentorship going in my department right now'' directly from the dashboard, without having to ask faculty manually.
+  \item \textbf{User satisfaction:} a short post-pilot survey (1--5 rating) asking students and faculty whether the system made mentorship easier to manage.
 \end{itemize}
-Testing is done manually by the team against these criteria, rather than through an automated test suite, given the project timeline. This will be tested with a small pilot group --- a handful of students and their assigned faculty mentors within one department --- before considering a wider rollout.
+Testing is done manually by the team against these criteria, rather than through an automated test suite, given the project timeline. This will be tested with a small pilot group: a handful of students and their assigned faculty mentors within one department, before considering a wider rollout.
 
 \subsection{Constraints and Safety}
-The interface has to stay simple enough that faculty --- who will not tolerate a clunky tool --- actually use it instead of going back to email. There are no physical safety concerns since this is a web application, but there are data-safety concerns worth planning for early: meeting notes are personal academic data, so they need to be restricted to the assigned mentor and department admin only, not visible university-wide. To fit the project timeline, a few features are intentionally left out of this version and treated as possible extensions rather than core scope: automated workload-balancing in the allocation module, email/SMS notifications (the system uses in-app status only), and password-recovery flows (basic login/signup only). None of these affect the core mentorship workflow --- they can be added later without changing the system's architecture.
+The interface has to stay simple enough that faculty, who will not tolerate a clunky tool, actually use it instead of going back to email. There are no physical safety concerns since this is a web application, but there are data-safety concerns worth planning for early: meeting notes are personal academic data, so they need to be restricted to the assigned mentor and department admin only, not visible university-wide. To fit the project timeline, a few features are intentionally left out of this version and treated as possible extensions rather than core scope: automated workload-balancing in the allocation module, email/SMS notifications (the system uses in-app status only), and password-recovery flows (basic login/signup only). None of these affect the core mentorship workflow. They can be added later without changing the system's architecture.
 
+\clearpage
 \section{System Design Diagrams}
 The diagrams below cover the system's structure at three levels: who uses it and what they can do (use-case diagram), how data moves through it at a high level (DFD Level 0), and how that breaks down into the system's core modules and data stores (DFD Level 1).
 
-\begin{figure}[h]
-    \centering
-    % \includegraphics[width=\textwidth]{use_case.png}
-    % Note: Export the Mermaid Use-Case diagram to use_case.png and place it in the same directory.
-    \caption{Use-case diagram: actors and their interactions with CMMS.}
-    \label{fig:use_case}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{usecase.png}
+\caption{Use-case diagram: actors and their interactions with CMMS.}
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    % \includegraphics[width=\textwidth]{dfd0.png}
-    % Note: Export the Mermaid DFD Level 0 diagram to dfd0.png and place it in the same directory.
-    \caption{DFD Level 0 (context diagram): CMMS as a single process.}
-    \label{fig:dfd0}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{dfd_level0.png}
+\caption{DFD Level 0 (context diagram): CMMS as a single process.}
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    % \includegraphics[width=\textwidth]{dfd1.png}
-    % Note: Export the Mermaid DFD Level 1 diagram to dfd1.png and place it in the same directory.
-    \caption{DFD Level 1: CMMS decomposed into its four core modules and data stores.}
-    \label{fig:dfd1}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.85\textheight,keepaspectratio]{dfd_level1.png}
+\caption{DFD Level 1: CMMS decomposed into its four core modules and data stores.}
 \end{figure}
 
+\clearpage
 \section{Feasibility}
 \textbf{Technical feasibility:} The MERN stack is well-documented and the team already has hands-on experience building full-stack MERN applications, so there is no new technology to learn from scratch. Every component (React, Node/Express, MongoDB) is mature and has a large support community, which lowers the risk of getting stuck on tooling issues.
 
@@ -127,26 +120,26 @@ The diagrams below cover the system's structure at three levels: who uses it and
 \textbf{Economic feasibility:} As detailed in the Resources and Budget section, every tool and service used is available on a free tier or already provided by the university, so the project has no external funding requirement and no financial barrier to completion.
 
 \section{Timeline}
-\begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{@{}p{1.5cm} p{7cm} p{6cm}@{}}
+\begin{center}
+\begin{tabular}{@{}p{1.6cm}p{6.2cm}p{6.2cm}@{}}
 \toprule
-\textbf{Week} & \textbf{Task} & \textbf{Deliverable} \\ \midrule
-1--2 & Requirements finalization, schema design, project setup & Architecture doc, repo setup \\ 
-3--5 & Build authentication and the allocation module & Working student--mentor matching \\ 
-6--8 & Build scheduling module and meeting notes & Bookable office hours, auto-generated logs \\ 
-9--10 & Build role-based dashboards (student/faculty/admin) & Working dashboards for all three roles \\ 
-11 & Pilot testing within one department & Pilot feedback, evaluation metrics \\ 
-12 & Buffer week: fixes from pilot feedback, final polish and docs & Final submission \\ \bottomrule
+\textbf{Week} & \textbf{Task} & \textbf{Deliverable} \\
+\midrule
+1--2 & Requirements finalization, schema design, project setup & Architecture doc, repo setup \\
+3--5 & Build authentication and the allocation module & Working student--mentor matching \\
+6--8 & Build scheduling module and meeting notes & Bookable office hours, auto-generated logs \\
+9--10 & Build role-based dashboards (student/faculty/admin) & Working dashboards for all three roles \\
+11 & Pilot testing within one department & Pilot feedback, evaluation metrics \\
+12 & \textbf{Buffer week:} fixes from pilot feedback, final polish and docs & Final submission \\
+\bottomrule
 \end{tabular}
-\end{table}
+\end{center}
 
 \section{Resources and Budget}
-\textbf{Human resources:} This is a group project with three members. Aaditya Bansal leads the backend --- authentication, allocation, and scheduling APIs. Jessica leads the frontend --- the three role-based dashboards and overall UI. Harshveer Singh leads the database design. All three contribute to integration and to running the pilot.
+\textbf{Human resources:} This is a group project with three members. Aaditya Bansal leads the backend: authentication, allocation, and scheduling APIs. Jessica leads the frontend: the three role-based dashboards and overall UI. Harshveer Singh leads the database design. All three contribute to integration and to running the pilot.
 
 \textbf{Material resources:} No specialized lab equipment is needed. The project uses MongoDB Atlas's free tier for the database and a free-tier hosting platform (e.g., Render or Vercel) for the frontend and backend, with a shared GitHub repository for version control.
 
-\textbf{Budget:} No external funding is required. Every tool and service used --- database hosting, web hosting, and version control --- is available on a free tier, or already provided through the university.
+\textbf{Budget:} No external funding is required. Every tool and service used (database hosting, web hosting, and version control) is available on a free tier, or already provided through the university.
 
 \end{document}
