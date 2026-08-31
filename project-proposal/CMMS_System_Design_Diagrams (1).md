@@ -2,7 +2,6 @@
 
 This document contains the foundational system design diagrams for the **College Mentorship Management System (CMMS)**. You can use these diagrams in your final project report or presentation. 
 
-The diagrams are written in [Mermaid](https://mermaid.js.org/), which can be natively rendered in GitHub, Notion, or exported as images using the [Mermaid Live Editor](https://mermaid.live).
 
 ## 1. Use-Case Diagram
 
