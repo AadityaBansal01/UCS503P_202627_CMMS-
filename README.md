@@ -1,45 +1,145 @@
-# UCS503P Project Template
+# College Mentorship Management System (CMMS)
 
-This is a project template for UCS503P Project (2026-27
-ODD). 
+A full-stack MERN platform that replaces informal email/office-hours mentorship coordination with automated mentor allocation, conflict-free scheduling, meeting logging, and role-based dashboards for Students, Faculty, and Department Admins.
 
-There are 3 reports in LaTeX format, namely *a*)
-Project Proposal, *b*) Project Report Prototype Stage,
-and *c*) Project Report Final -- each in their
-respective folders.
+**Course:** UCS503P — Software Engineering Project, TIET Patiala
+**Status:** Prototype Delivered (Week 10) · Pilot Testing (Week 11) · Final Defense (Week 12)
 
-Journals are stacked under the folder `journals`, one
-folder for each team member.  A sample entry has been
-made for example.
+---
 
-The source code is contained within the folder `code`.
+## 🚀 Features
 
-The documentation is under folder `docs`.
+- **Automated Mentor Allocation** — Matches students to faculty mentors by department/focus area (100% intra-department accuracy).
+- **Conflict-Free Scheduling** — Faculty publish office-hour slots; server-side concurrency checks block double-booking.
+- **Meeting Logging** — Immutable, timestamped notes and post-session feedback (1–5 star ratings).
+- **Role-Based Dashboards** — Separate portals for Student, Faculty, and Department Admin, with live metrics.
+- **Admin Reassignment Tools** — Manual mentee reassignment with workload visibility.
+- **Secure Auth** — JWT-based sessions with bcrypt password hashing and role-guarded routes.
 
-All other aspects of code organisation are left to the
-discretion of the user(s).
+---
 
+## 🛠️ Tech Stack
 
-## Docs
+| Layer | Technology |
+|---|---|
+| Frontend | React 18, Vite, React Router v6, Context API |
+| Backend | Node.js, Express 5, JWT, bcrypt |
+| Database | MongoDB Atlas, Mongoose ODM |
 
-As of now, the `docs` is just an organised collection
-of markdown (`md`) files.  But the build procedure is
-using [`mkdocs`](https://google.com/search?q=mkdocs)
-backend.  As a result, any commit into the `master`
-branch of github repository would result in CI/CD based
-build and deployment of the documentation including the
-journals.
+---
 
-For a local DEV-version of the docs for viewing and
-testing, install the local env and issue the following
-command:
+## 👥 Team
 
-``` shell
-make docs
+| Name | Role | Roll No. |
+|---|---|---|
+| Aaditya Bansal | Backend & System Integration Lead | 1024030768 |
+| Jessica | Frontend UI/UX Lead | 1024030761 |
+| Harshveer Singh | Database & Conflict Logic Lead | 1024030776 |
+
+**Supervisor:** Jeelani Asif
+
+---
+
+## 📁 Project Structure
+
+```
+cmms/
+├── client/          # React + Vite frontend
+│   ├── src/
+│   │   ├── pages/   # Student, Faculty, Admin portals
+│   │   ├── components/
+│   │   └── context/ # AuthContext
+├── server/          # Express backend
+│   ├── models/      # User, Student, Mentor, Meeting, Note, Assignment, Feedback
+│   ├── routes/
+│   ├── controllers/
+│   └── middleware/
+└── docs/            # Gantt chart, prototype report, diagrams
 ```
 
-### Local `env` for `docs`
+---
 
-``` shell
+## ⚙️ Setup
 
+```bash
+# Clone
+git clone https://github.com/<org>/cmms.git
+cd cmms
+
+# Backend
+cd server
+npm install
+npm run dev
+
+# Frontend
+cd ../client
+npm install
+npm run dev
 ```
+
+Create a `.env` in `/server` with:
+```
+MONGO_URI=<your MongoDB Atlas URI>
+JWT_SECRET=<your secret>
+PORT=5000
+```
+
+---
+
+## 🔌 API Overview
+
+Base URL: `/api`
+
+| Route | Auth | Purpose |
+|---|---|---|
+| `POST /users` | Public | Register |
+| `POST /users/login` | Public | Login, returns JWT |
+| `GET /mentors/:id/mentees` | Faculty | View advisee roster |
+| `PUT /mentors/:id/availability` | Faculty | Publish office hours |
+| `POST /meetings` | Student | Book conflict-free slot |
+| `PUT /meetings/:id/notes` | Faculty | Add meeting notes |
+| `POST /assignments` | Admin | Allocate mentor to student |
+| `PUT /assignments/:id/reassign` | Admin | Reassign mentee |
+| `POST /feedback` | Student | Submit session rating |
+
+Full endpoint catalog (22 routes) is in `docs/Prototype_Report.pdf`.
+
+---
+
+## 📊 Project Timeline
+
+12-week schedule across 6 phases (Planning → Auth & Allocation → Scheduling → Dashboards → Pilot → Final Defense). See [`docs/Gantt_Chart.pdf`](./docs/CMMS_Gantt_Chart.pdf) for the full breakdown and milestone tracker (M1–M6).
+
+- ✅ M1 — Architecture & SRS Approved (W2)
+- ✅ M2 — Allocation Engine Verified (W5)
+- ✅ M3 — Conflict-Free Scheduling (W8)
+- ✅ M4 — Prototype Review Complete (W10)
+- 🔄 M5 — Department Pilot (W11)
+- ⏳ M6 — Final Defense & Delivery (W12)
+
+---
+
+## 🧪 Testing
+
+14/14 functional test cases passing — covering auth, RBAC, allocation, booking, concurrency, notes, feedback, and dashboards. Details in `docs/Prototype_Report.pdf`, Section 9.
+
+---
+
+## 📄 Documentation
+
+- [Prototype Stage Report](./docs/CMMS_Prototype_Report.pdf) — full architecture, DFDs, ER diagram, schema, API spec, test results.
+- [Gantt Chart](./docs/CMMS_Gantt_Chart.pdf) — 12-week schedule and WBS.
+
+---
+
+## 🗺️ Roadmap (Final Release)
+
+- SMTP email/SMS notifications
+- Google Calendar / Outlook sync
+- Automated workload-balancing heuristic (currently manual)
+
+---
+
+## 📜 License
+
+Academic project — TIET CSE Department, UCS503P, 2026–27.
