@@ -108,7 +108,7 @@ Full endpoint catalog (22 routes) is in `docs/Prototype_Report.pdf`.
 
 ## 📊 Project Timeline
 
-12-week schedule across 6 phases (Planning → Auth & Allocation → Scheduling → Dashboards → Pilot → Final Defense). See [`docs/Gantt_Chart.pdf`](./docs/CMMS_Gantt_Chart.pdf) for the full breakdown and milestone tracker (M1–M6).
+12-week schedule across 6 phases (Planning → Auth & Allocation → Scheduling → Dashboards → Pilot → Final Defense).
 
 - ✅ M1 — Architecture & SRS Approved
 - ✅ M2 — Allocation Engine Verified 
@@ -125,10 +125,6 @@ Full endpoint catalog (22 routes) is in `docs/Prototype_Report.pdf`.
 
 ---
 
-## 📄 Documentation
-
-- [Prototype Stage Report](./docs/CMMS_Prototype_Report.pdf) — full architecture, DFDs, ER diagram, schema, API spec, test results.
-- [Gantt Chart](./docs/CMMS_Gantt_Chart.pdf) — 12-week schedule and WBS.
 
 ---
 
