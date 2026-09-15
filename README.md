@@ -110,12 +110,12 @@ Full endpoint catalog (22 routes) is in `docs/Prototype_Report.pdf`.
 
 12-week schedule across 6 phases (Planning → Auth & Allocation → Scheduling → Dashboards → Pilot → Final Defense). See [`docs/Gantt_Chart.pdf`](./docs/CMMS_Gantt_Chart.pdf) for the full breakdown and milestone tracker (M1–M6).
 
-- ✅ M1 — Architecture & SRS Approved (W2)
-- ✅ M2 — Allocation Engine Verified (W5)
-- ✅ M3 — Conflict-Free Scheduling (W8)
-- ✅ M4 — Prototype Review Complete (W10)
-- 🔄 M5 — Department Pilot (W11)
-- ⏳ M6 — Final Defense & Delivery (W12)
+- ✅ M1 — Architecture & SRS Approved
+- ✅ M2 — Allocation Engine Verified 
+- ✅ M3 — Conflict-Free Scheduling 
+- ✅ M4 — Prototype Review Complete 
+- 🔄 M5 — Department Pilot 
+- ⏳ M6 — Final Defense & Delivery 
 
 ---
 
