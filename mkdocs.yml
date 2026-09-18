@@ -1,74 +1,82 @@
-site_name: "UCS503 : Software Engineering : Project Template"
-site_url: https://tiet-ucs503.github.io/ucs503p-202627odd-template
+site_name: "CMMS · College Mentorship Management System"
+site_description: "Engineering documentation and architecture for the College Mentorship Management System (UCS503P, TIET Patiala)"
+site_author: "Aaditya Bansal, Jessica, Harshveer Singh"
+site_url: https://aadityabansal01.github.io/UCS503P_202627_CMMS-/
 
-plugins:
-- search
-# - gen-files:
-#     scripts:
-#     - scripts/gen_ref_pages.py
-- literate-nav:
-    nav_file: summary.md
-- section-index
-- git-revision-date-localized
-# - git-committers:
-#     repository: "tiet-unc512/tiet-unc512.github.io"
-- git-authors
-- mkdocstrings:
-    handlers:
-      python:
-        paths: [src]
-        options:
-          summary: true
-          show_symbol_type_heading: true
-          show_symbol_type_toc: true
-          # show_object_full_path: true
-          show_root_full_path: true
-          show_root_heading: true
-          show_source: false
+repo_url: https://github.com/AadityaBansal01/UCS503P_202627_CMMS-
+repo_name: AadityaBansal01/UCS503P_202627_CMMS-
+copyright: "Copyright &copy; 2026 Aaditya Bansal, Jessica, Harshveer Singh · UCS503P Software Engineering, TIET Patiala"
 
 theme:
   name: material
-  custom_dir: docs/assets/theme-overrides
+  custom_dir: assets/theme-overrides
   features:
-    - navigation.footer
-    - header.autohide
-    - content.tabs.link
-    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.top
-    - toc.integrate
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.copy
     - content.tooltips
-  icon:
-    repo: fontawesome/brands/github
-    annotation: material/plus-circle-outline
   palette:
-    primary: amber
-    accent: orange
+    # Light mode
+    - scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   logo: assets/tiet-logo.svg
   favicon: assets/favicon.png
+  icon:
+    repo: fontawesome/brands/github
 
-repo_url: https://github.com/tiet-ucs503/ucs503p-202627odd-template
-repo_name: ucs503p-202627odd-template
-copyright: "Copyright &copy; 2025 <a href='https://bvraghav.com/'>Raghav B. Venkataramaiyer</a> &lt;<code style='color:inherit; background:transparent'>bv.raghav</code>&gt;"
+plugins:
+  - search
+  - literate-nav:
+      nav_file: summary.md
+  - section-index
+  - git-revision-date-localized
+  - git-authors
+
 extra:
   social:
-  - icon: fontawesome/brands/github
-    link: https://github.com/tiet-ucs503/ucs503p-202627odd-template
-    name: Git Repo for UCS503P Project Template
+    - icon: fontawesome/brands/github
+      link: https://github.com/AadityaBansal01/UCS503P_202627_CMMS-
+      name: GitHub Repository
+    - icon: fontawesome/solid/graduation-cap
+      link: https://www.thapar.edu/
+      name: Thapar Institute of Engineering and Technology
 
 extra_css:
   - assets/stylesheets/extra.css
   - https://unpkg.com/katex@0/dist/katex.min.css
 
 extra_javascript:
-- https://unpkg.com/katex@0/dist/katex.min.js
-- javascript/arithmatex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - javascript/arithmatex.js
 
 markdown_extensions:
   - abbr
   - md_in_html
   - attr_list
+  - admonition
+  - pymdownx.details
   - toc:
       permalink: true
+      toc_depth: 3
   - footnotes
   - pymdownx.arithmatex:
       generic: true
@@ -84,6 +92,9 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
         - name: math
           class: arithmatex
           arithmatex: !!python/object/apply:pymdownx.arithmatex.arithmatex_fenced_format {which: generic}
@@ -97,7 +108,4 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
-  # - mkdocs-click
-  - toc:
-      toc_depth: 4
   - sane_lists
